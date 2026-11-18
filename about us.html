@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">DROXILOSHOP | About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ds-bg: #070707;
+            --ds-card-bg: rgba(18, 18, 18, 0.96);
+            --ds-text: #ffffff;
+            --ds-text-muted: #a0a0a0;
+            --ds-border: rgba(212, 175, 55, 0.3);
+            --ds-gold: #d4af37;
+            --ds-gold-light: #f3e5ab;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--ds-bg);
+            color: var(--ds-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* الهايدر الموحد */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 30px;
+            background-color: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid var(--ds-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-left-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .action-icon-btn {
+            background: transparent;
+            border: 1px solid var(--ds-border);
+            color: var(--ds-text);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .action-icon-btn:hover {
+            border-color: var(--ds-gold);
+            color: var(--ds-gold);
+        }
+
+        /* تبديل اللغات الفوري الآمن */
+        .lang-switch {
+            display: flex;
+            background: #141414;
+            border: 1px solid var(--ds-border);
+            border-radius: 20px;
+            overflow: hidden;
+            font-size: 0.7rem;
+            font-weight: 800;
+        }
+
+        .lang-btn {
+            padding: 5px 8px;
+            background: transparent;
+            border: none;
+            color: var(--ds-text-muted);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .lang-btn.active {
+            background: var(--ds-gold);
+            color: #000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--ds-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: 0.2s;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--ds-gold);
+        }
+
+        .header-brand-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .header-logo-img {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .header-brand-name {
+            font-size: 1.25rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--ds-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        /* رأس الصفحة */
+        .page-hero {
+            text-align: center;
+            padding: 50px 20px 30px;
+            border-bottom: 1px solid var(--ds-border);
+            background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, rgba(7,7,7,1) 80%);
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .page-hero p {
+            font-size: 0.95rem;
+            color: var(--ds-text-muted);
+        }
+
+        /* حاوية الصفحة المطابقة للصورة */
+        .about-wrapper {
+            max-width: 1050px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* القسم الأول: صورة + نص تعريفي */
+        .about-top-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 35px;
+            align-items: center;
+            background-color: var(--ds-card-bg);
+            border: 1px solid var(--ds-border);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+        }
+
+        .about-img-box {
+            width: 100%;
+            height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--ds-border);
+            background: #121212;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text-content h3 {
+            font-size: 0.85rem;
+            color: var(--ds-gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .about-text-content h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .about-text-content p {
+            font-size: 0.92rem;
+            color: var(--ds-text-muted);
+            margin-bottom: 15px;
+        }
+
+        /* القسم الثاني: المهارات والإحصائيات (مثل الصورة تماماً) */
+        .about-middle-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card-box {
+            background-color: var(--ds-card-bg);
+            border: 1px solid var(--ds-border);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+        }
+
+        .card-box h3 {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .card-box p.subtitle {
+            font-size: 0.83rem;
+            color: var(--ds-text-muted);
+            margin-bottom: 25px;
+        }
+
+        /* أشرطة المهارات */
+        .skill-item {
+            margin-bottom: 18px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .skill-bar-bg {
+            width: 100%;
+            height: 6px;
+            background: #1c1c1c;
+            border-radius: 3px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--ds-gold), var(--ds-gold-light));
+            border-radius: 3px;
+        }
+
+        /* شبكة الإحصائيات (2x2) */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .stat-item {
+            background: rgba(12,12,12,0.9);
+            border: 1px solid var(--ds-border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--ds-gold);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--ds-text-muted);
+            font-weight: 700;
+        }
+
+        /* القسم الثالث: البانر السفلي (مثل الصورة) */
+        .about-bottom-banner {
+            position: relative;
+            height: 220px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--ds-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url('about-banner.jpg') center/cover no-repeat;
+        }
+
+        .banner-content h3 {
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .banner-badge {
+            display: inline-block;
+            background: rgba(212,175,55,0.15);
+            border: 1px solid var(--ds-gold);
+            color: var(--ds-gold);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 800;
+        }
+
+        /* الفوتر */
+        footer {
+            background-color: #0d0d0d;
+            border-top: 1px solid var(--ds-border);
+            padding: 35px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-brand {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--ds-gold);
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        @media(max-width: 768px) {
+            .about-top-grid, .about-middle-grid { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهايدر الموحد -->
+    <header>
+        <div class="header-left-actions">
+            <button class="action-icon-btn" title="السلة">
+                <i class="fa-solid fa-bag-shopping"></i>
+            </button>
+            <a href="login.html" class="action-icon-btn" title="تسجيل الدخول">
+                <i class="fa-regular fa-user"></i>
+            </a>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="switchLanguage('ar', this)">AR</button>
+                <button class="lang-btn" onclick="switchLanguage('fr', this)">FR</button>
+                <button class="lang-btn" onclick="switchLanguage('en', this)">EN</button>
+            </div>
+            <button class="action-icon-btn" title="بحث">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" id="nav-home">HOME</a></li>
+            <li><a href="index.html#men" id="nav-men">MEN</a></li>
+            <li><a href="index.html#women" id="nav-women">WOMEN</a></li>
+            <li><a href="contact.html" id="nav-contact">CONTACT US</a></li>
+        </ul>
+
+        <a href="index.html" class="header-brand-box">
+            <div class="header-brand-name">DROXILOSHOP</div>
+            <img src="LOGO.png" alt="Logo" class="header-logo-img" onerror="this.style.display='none'">
+        </a>
+    </header>
+
+    <!-- رأس الصفحة -->
+    <div class="page-hero">
+        <h1 id="hero-title">About Us</h1>
+        <p id="hero-breadcrumb">Home / About</p>
+    </div>
+
+    <!-- محتوى الصفحة المطابق للتصميم -->
+    <div class="about-wrapper">
+        
+        <!-- القسم الأول: صورة ونص -->
+        <div class="about-top-grid">
+            <div class="about-img-box">
+                <img src="about-main.jpg" alt="About Studio" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=600&auto=format&fit=crop'">
+            </div>
+            <div class="about-text-content">
+                <h3 id="sec1-subtitle">About Us</h3>
+                <h2 id="sec1-title">We Always Make The Best</h2>
+                <p id="sec1-p1">نحن نصمم ونبتكر قطعايستريتوير فريدة ومتميزة تجمع بين جودة الأوزان العالية والثقافة المعاصرة لضمان أناقتك.</p>
+                <p id="sec1-p2">كل تصميم يتم العمل عليه بدقة وحرفية لتقديم أفضل تجربة أزياء استثنائية تنبض بالإبداع والتميز من وجدة إلى العالم.</p>
+            </div>
+        </div>
+
+        <!-- القسم الثاني: المهارات والإحصائيات -->
+        <div class="about-middle-grid">
+            
+            <!-- مهارات وخبرات المتجر -->
+            <div class="card-box">
+                <h3 id="skills-title">Our Skills</h3>
+                <p class="subtitle" id="skills-desc">خبرة واسعة في التصميم، الجودة، والتطوير الرقمي.</p>
+
+                <div class="skill-item">
+                    <div class="skill-info"><span id="sk1-name">Streetwear Design</span><span>89%</span></div>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 89%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info"><span id="sk2-name">DTF Print Quality</span><span>95%</span></div>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-info"><span id="sk3-name">Branding & Style</span><span>77%</span></div>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 77%;"></div></div>
+                </div>
+            </div>
+
+            <!-- إحصائيات متطورة -->
+            <div class="card-box">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label" id="st1-lbl">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1,000+</div>
+                        <div class="stat-label" id="st2-lbl">Project Done</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label" id="st3-lbl">Satisfied Client</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label" id="st4-lbl">Premium Quality</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- القسم الثالث: البانر السفلي -->
+        <div class="about-bottom-banner">
+            <div class="banner-content">
+                <h3 id="banner-txt">We Are Always Ready To Take A Perfect Shot</h3>
+                <div class="banner-badge" id="banner-badge">DROXILOSHOP 2026</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-brand">DROXILOSHOP</div>
+        <div class="footer-text" id="footer-rights">© 2026 جميع الحقوق محفوظة. صُمم لعشاق الستريتوير الفاخر.</div>
+    </footer>
+
+    <script>
+        // نظام الترجمة الفورية الآمن تماماً ضد الثغرات (XSS Protected)
+        const translations = {
+            ar: {
+                home: "HOME",
+                men: "MEN",
+                women: "WOMEN",
+                contact: "CONTACT US",
+                heroTitle: "من نحن",
+                heroBreadcrumb: "الرئيسية / من نحن",
+                sec1Subtitle: "About Us",
+                sec1Title: "نحن نقدم الأفضل دائماً",
+                sec1P1: "نحن نصمم ونبتكر قطعايستريتوير فريدة ومتميزة تجمع بين جودة الأوزان العالية والثقافة المعاصرة لضمان أناقتك.",
+                sec1P2: "كل تصميم يتم العمل عليه بدقة وحرفية لتقديم أفضل تجربة أزياء استثنائية تنبض بالإبداع والتميز من وجدة إلى العالم.",
+                skillsTitle: "مهاراتنا وخبراتنا",
+                skillsDesc: "خبرة واسعة في التصميم، الجودة، والتطوير الرقمي.",
+                sk1Name: "تصميم الستريتوير",
+                sk2Name: "جودة الطباعة DTF",
+                sk3Name: "الهوية البصرية",
+                st1Lbl: "سنوات الخبرة",
+                st2Lbl: "مشروع منجز",
+                st3Lbl: "عميل راضٍ",
+                st4Lbl: "جودة ممتازة",
+                bannerTxt: "جاهزون دائماً لتقديم أروع التصاميم والمنتجات",
+                bannerBadge: "دروكسيلو شوب 2026",
+                rights: "© 2026 جميع الحقوق محفوظة. صُمم لعشاق الستريتوير الفاخر."
+            },
+            fr: {
+                home: "ACCUEIL",
+                men: "HOMMES",
+                women: "FEMMES",
+                contact: "CONTACTEZ-NOUS",
+                heroTitle: "À Propos",
+                heroBreadcrumb: "Accueil / À Propos",
+                sec1Subtitle: "About Us",
+                sec1Title: "We Always Make The Best",
+                sec1P1: "Nous concevons des pièces streetwear uniques qui allient qualité supérieure et culture contemporaine.",
+                sec1P2: "Chaque design est travaillé avec précision pour offrir une expérience vestimentaire exceptionnelle.",
+                skillsTitle: "Our Skills",
+                skillsDesc: "Une expertise approfondie en design, qualité et développement.",
+                sk1Name: "Streetwear Design",
+                sk2Name: "DTF Print Quality",
+                sk3Name: "Branding & Style",
+                st1Lbl: "Years Experience",
+                st2Lbl: "Project Done",
+                st3Lbl: "Satisfied Client",
+                st4Lbl: "Premium Quality",
+                bannerTxt: "We Are Always Ready To Take A Perfect Shot",
+                bannerBadge: "DROXILOSHOP 2026",
+                rights: "© 2026 Tous droits réservés. Conçu pour les passionnés de streetwear."
+            },
+            en: {
+                home: "HOME",
+                men: "MEN",
+                women: "WOMEN",
+                contact: "CONTACT US",
+                heroTitle: "About Us",
+                heroBreadcrumb: "Home / About",
+                sec1Subtitle: "About Us",
+                sec1Title: "We Always Make The Best",
+                sec1P1: "We design and create unique streetwear pieces combining heavyweight quality and contemporary culture.",
+                sec1P2: "Every design is crafted meticulously to deliver an exceptional apparel experience.",
+                skillsTitle: "Our Skills",
+                skillsDesc: "Extensive expertise in design, quality, and digital innovation.",
+                sk1Name: "Streetwear Design",
+                sk2Name: "DTF Print Quality",
+                sk3Name: "Branding & Style",
+                st1Lbl: "Years Experience",
+                st2Lbl: "Project Done",
+                st3Lbl: "Satisfied Client",
+                st4Lbl: "Premium Quality",
+                bannerTxt: "We Are Always Ready To Take A Perfect Shot",
+                bannerBadge: "DROXILOSHOP 2026",
+                rights: "© 2026 All rights reserved. Designed for streetwear enthusiasts."
+            }
+        };
+
+        function switchLanguage(lang, element) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const root = document.getElementById('html-root');
+            if (lang === 'ar') {
+                root.setAttribute('dir', 'rtl');
+                root.setAttribute('lang', 'ar');
+            } else {
+                root.setAttribute('dir', 'ltr');
+                root.setAttribute('lang', lang);
+            }
+
+            const t = translations[lang];
+            document.getElementById('nav-home').textContent = t.home;
+            document.getElementById('nav-men').textContent = t.men;
+            document.getElementById('nav-women').textContent = t.women;
+            document.getElementById('nav-contact').textContent = t.contact;
+            document.getElementById('hero-title').textContent = t.heroTitle;
+            document.getElementById('hero-breadcrumb').textContent = t.heroBreadcrumb;
+            document.getElementById('sec1-subtitle').textContent = t.sec1Subtitle;
+            document.getElementById('sec1-title').textContent = t.sec1Title;
+            document.getElementById('sec1-p1').textContent = t.sec1P1;
+            document.getElementById('sec1-p2').textContent = t.sec1P2;
+            document.getElementById('skills-title').textContent = t.skillsTitle;
+            document.getElementById('skills-desc').textContent = t.skillsDesc;
+            document.getElementById('sk1-name').textContent = t.sk1Name;
+            document.getElementById('sk2-name').textContent = t.sk2Name;
+            document.getElementById('sk3-name').textContent = t.sk3Name;
+            document.getElementById('st1-lbl').textContent = t.st1Lbl;
+            document.getElementById('st2-lbl').textContent = t.st2Lbl;
+            document.getElementById('st3-lbl').textContent = t.st3Lbl;
+            document.getElementById('st4-lbl').textContent = t.st4Lbl;
+            document.getElementById('banner-txt').textContent = t.bannerTxt;
+            document.getElementById('banner-badge').textContent = t.bannerBadge;
+            document.getElementById('footer-rights').textContent = t.rights;
+        }
+    </script>
+</body>
+</html>

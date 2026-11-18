@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">DROXILOSHOP | Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ds-bg: #070707;
+            --ds-card-bg: rgba(18, 18, 18, 0.96);
+            --ds-text: #ffffff;
+            --ds-text-muted: #a0a0a0;
+            --ds-border: rgba(212, 175, 55, 0.3);
+            --ds-gold: #d4af37;
+            --ds-gold-light: #f3e5ab;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--ds-bg);
+            color: var(--ds-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* الهايدر الموحد الآمن */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 30px;
+            background-color: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid var(--ds-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-left-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .action-icon-btn {
+            background: transparent;
+            border: 1px solid var(--ds-border);
+            color: var(--ds-text);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .action-icon-btn:hover {
+            border-color: var(--ds-gold);
+            color: var(--ds-gold);
+        }
+
+        /* تبديل اللغات (AR - FR - EN) */
+        .lang-switch {
+            display: flex;
+            background: #141414;
+            border: 1px solid var(--ds-border);
+            border-radius: 20px;
+            overflow: hidden;
+            font-size: 0.7rem;
+            font-weight: 800;
+        }
+
+        .lang-btn {
+            padding: 5px 8px;
+            background: transparent;
+            border: none;
+            color: var(--ds-text-muted);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .lang-btn.active {
+            background: var(--ds-gold);
+            color: #000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--ds-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: 0.2s;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--ds-gold);
+        }
+
+        .header-brand-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .header-logo-img {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .header-brand-name {
+            font-size: 1.25rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--ds-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        /* رأس الصفحة */
+        .page-hero {
+            text-align: center;
+            padding: 50px 20px 30px;
+            border-bottom: 1px solid var(--ds-border);
+            background: radial-gradient(circle, rgba(212,175,55,0.05) 0%, rgba(7,7,7,1) 80%);
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .page-hero p {
+            font-size: 0.95rem;
+            color: var(--ds-text-muted);
+        }
+
+        /* حاوية صفحة التواصل */
+        .contact-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 35px;
+        }
+
+        .contact-card {
+            background-color: var(--ds-card-bg);
+            border: 1px solid var(--ds-border);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.85);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .section-desc {
+            font-size: 0.88rem;
+            color: var(--ds-text-muted);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--ds-border);
+            background-color: #121212;
+            color: #fff;
+            font-size: 0.92rem;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--ds-gold);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-send {
+            background: linear-gradient(135deg, var(--ds-gold) 0%, #aa8c2c 100%);
+            color: #000;
+            font-size: 1.05rem;
+            font-weight: 900;
+            padding: 13px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .btn-send:hover {
+            background: linear-gradient(135deg, var(--ds-gold-light) 0%, var(--ds-gold) 100%);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .info-icon {
+            font-size: 1.2rem;
+            color: var(--ds-gold);
+            background: rgba(212, 175, 55, 0.08);
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--ds-border);
+            flex-shrink: 0;
+        }
+
+        .info-details h4 {
+            font-size: 0.8rem;
+            color: var(--ds-text-muted);
+            font-weight: 700;
+        }
+
+        .info-details p, .info-details a {
+            font-size: 0.88rem;
+            color: #fff;
+            font-weight: 800;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .info-details a:hover {
+            color: var(--ds-gold);
+        }
+
+        .map-box {
+            width: 100%;
+            height: 180px;
+            border-radius: 10px;
+            border: 1px solid var(--ds-border);
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: invert(90%) hue-rotate(180deg);
+        }
+
+        /* الفوتر */
+        footer {
+            background-color: #0d0d0d;
+            border-top: 1px solid var(--ds-border);
+            padding: 35px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-brand {
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--ds-gold);
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        @media(max-width: 768px) {
+            .contact-container { grid-template-columns: 1fr; }
+            .info-grid { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهايدر الموحد -->
+    <header>
+        <div class="header-left-actions">
+            <button class="action-icon-btn" title="السلة">
+                <i class="fa-solid fa-bag-shopping"></i>
+            </button>
+            <a href="login.html" class="action-icon-btn" title="تسجيل الدخول">
+                <i class="fa-regular fa-user"></i>
+            </a>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="switchLanguage('ar', this)">AR</button>
+                <button class="lang-btn" onclick="switchLanguage('fr', this)">FR</button>
+                <button class="lang-btn" onclick="switchLanguage('en', this)">EN</button>
+            </div>
+            <button class="action-icon-btn" title="بحث">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html" id="nav-home">HOME</a></li>
+            <li><a href="index.html#men" id="nav-men">MEN</a></li>
+            <li><a href="index.html#women" id="nav-women">WOMEN</a></li>
+            <li><a href="contact.html" class="active" id="nav-contact">CONTACT US</a></li>
+        </ul>
+
+        <a href="index.html" class="header-brand-box">
+            <div class="header-brand-name">DROXILOSHOP</div>
+            <img src="LOGO.png" alt="Logo" class="header-logo-img" onerror="this.style.display='none'">
+        </a>
+    </header>
+
+    <!-- رأس الصفحة -->
+    <div class="page-hero">
+        <h1 id="hero-title">Contact Us</h1>
+        <p id="hero-breadcrumb">Home / Contact</p>
+    </div>
+
+    <!-- محتوى التواصل -->
+    <div class="contact-container">
+        
+        <!-- استمارة الإرسال -->
+        <div class="contact-card">
+            <h2 class="section-title" id="form-title">Get In Touch</h2>
+            <p class="section-desc" id="form-desc">أرسل لنا استفسارك وسيقوم فريق الدعم بالرد عليك في أسرع وقت.</p>
+
+            <form action="https://formspree.io/f/xqppbnpr" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" id="input-name" placeholder="Your Name..." required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" id="input-email" placeholder="servicelosako@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="subject" id="input-subject" placeholder="Subject..." required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="4" id="input-msg" placeholder="Type Here..." required></textarea>
+                </div>
+                <button type="submit" class="btn-send" id="btn-submit-txt">Send Now</button>
+            </form>
+        </div>
+
+        <!-- معلومات الاتصال -->
+        <div class="contact-card">
+            <h2 class="section-title" id="info-title">Direct Info</h2>
+            <p class="section-desc" id="info-desc">تواصل معنا مباشرة عبر قنواتنا الرسمية.</p>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="info-details">
+                        <h4 id="lbl-phone">Phone Number</h4>
+                        <p dir="ltr">0725274491</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="info-details">
+                        <h4 id="lbl-email">Email Address</h4>
+                        <p>servicelosako@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon" style="color: #25d366;"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="info-details">
+                        <h4 id="lbl-wa">Whatsapp</h4>
+                        <a href="https://wa.me/212725274491" target="_blank" dir="ltr">0725274491</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="info-details">
+                        <h4 id="lbl-office">Our Office</h4>
+                        <p id="lbl-city">Oujda, Morocco</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106376.1267812234!2d-1.95764!3d34.6814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7864f1d4484b3d%3A0x6d8b9e83cf31215c!2sOujda%2C%20Morocco!5e0!3m2!1sen!2sma!4v1650000000000!5m2!1sen!2sma" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-brand">DROXILOSHOP</div>
+        <div class="footer-text" id="footer-rights">© 2026 جميع الحقوق محفوظة. صُمم لعشاق الستريتوير الفاخر.</div>
+    </footer>
+
+    <script>
+        // نظام الترجمة الفورية الآمن باستخدام textContent لمنع ثغرات XSS
+        const translations = {
+            ar: {
+                home: "HOME",
+                men: "MEN",
+                women: "WOMEN",
+                contact: "CONTACT US",
+                heroTitle: "اتصل بنا",
+                heroBreadcrumb: "الرئيسية / اتصل بنا",
+                formTitle: "ابقى على تواصل",
+                formDesc: "أرسل لنا استفسارك وسيقوم فريق الدعم بالرد عليك في أسرع وقت.",
+                namePlaceholder: "اسمك الكريم...",
+                emailPlaceholder: "servicelosako@gmail.com",
+                subjectPlaceholder: "الموضوع...",
+                msgPlaceholder: "اكتب رسالتك هنا...",
+                sendBtn: "إرسال الآن 🚀",
+                infoTitle: "معلومات مباشرة",
+                infoDesc: "تواصل معنا مباشرة عبر قنواتنا الرسمية.",
+                phoneLbl: "رقم الهاتف",
+                emailLbl: "البريد الإلكتروني",
+                waLbl: "الواتساب",
+                officeLbl: "مكتبنا",
+                cityLbl: "وجدة، المغرب",
+                rights: "© 2026 جميع الحقوق محفوظة. صُمم لعشاق الستريتوير الفاخر."
+            },
+            fr: {
+                home: "ACCUEIL",
+                men: "HOMMES",
+                women: "FEMMES",
+                contact: "CONTACTEZ-NOUS",
+                heroTitle: "Contactez-nous",
+                heroBreadcrumb: "Accueil / Contact",
+                formTitle: "Restez en contact",
+                formDesc: "Envoyez-nous votre demande, notre équipe vous répondra rapidement.",
+                namePlaceholder: "Votre Nom...",
+                emailPlaceholder: "servicelosako@gmail.com",
+                subjectPlaceholder: "Sujet...",
+                msgPlaceholder: "Tapez votre message ici...",
+                sendBtn: "Envoyer Maintenant 🚀",
+                infoTitle: "Infos Directes",
+                infoDesc: "Contactez-nous directement via nos canaux officiels.",
+                phoneLbl: "Numéro de Téléphone",
+                emailLbl: "Adresse Email",
+                waLbl: "WhatsApp",
+                officeLbl: "Notre Bureau",
+                cityLbl: "Oujda, Maroc",
+                rights: "© 2026 Tous droits réservés. Conçu pour les passionnés de streetwear."
+            },
+            en: {
+                home: "HOME",
+                men: "MEN",
+                women: "WOMEN",
+                contact: "CONTACT US",
+                heroTitle: "Contact Us",
+                heroBreadcrumb: "Home / Contact",
+                formTitle: "Get In Touch",
+                formDesc: "Send us your inquiry and our support team will reply promptly.",
+                namePlaceholder: "Your Name...",
+                emailPlaceholder: "servicelosako@gmail.com",
+                subjectPlaceholder: "Subject...",
+                msgPlaceholder: "Type Here...",
+                sendBtn: "Send Now 🚀",
+                infoTitle: "Direct Info",
+                infoDesc: "Reach out to us directly through our official channels.",
+                phoneLbl: "Phone Number",
+                emailLbl: "Email Address",
+                waLbl: "Whatsapp",
+                officeLbl: "Our Office",
+                cityLbl: "Oujda, Morocco",
+                rights: "© 2026 All rights reserved. Designed for streetwear enthusiasts."
+            }
+        };
+
+        function switchLanguage(lang, element) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const root = document.getElementById('html-root');
+            if (lang === 'ar') {
+                root.setAttribute('dir', 'rtl');
+                root.setAttribute('lang', 'ar');
+            } else {
+                root.setAttribute('dir', 'ltr');
+                root.setAttribute('lang', lang);
+            }
+
+            const t = translations[lang];
+            document.getElementById('nav-home').textContent = t.home;
+            document.getElementById('nav-men').textContent = t.men;
+            document.getElementById('nav-women').textContent = t.women;
+            document.getElementById('nav-contact').textContent = t.contact;
+            document.getElementById('hero-title').textContent = t.heroTitle;
+            document.getElementById('hero-breadcrumb').textContent = t.heroBreadcrumb;
+            document.getElementById('form-title').textContent = t.formTitle;
+            document.getElementById('form-desc').textContent = t.formDesc;
+            document.getElementById('input-name').placeholder = t.namePlaceholder;
+            document.getElementById('input-email').placeholder = t.emailPlaceholder;
+            document.getElementById('input-subject').placeholder = t.subjectPlaceholder;
+            document.getElementById('input-msg').placeholder = t.msgPlaceholder;
+            document.getElementById('btn-submit-txt').textContent = t.sendBtn;
+            document.getElementById('info-title').textContent = t.infoTitle;
+            document.getElementById('info-desc').textContent = t.infoDesc;
+            document.getElementById('lbl-phone').textContent = t.phoneLbl;
+            document.getElementById('lbl-email').textContent = t.emailLbl;
+            document.getElementById('lbl-wa').textContent = t.waLbl;
+            document.getElementById('lbl-office').textContent = t.officeLbl;
+            document.getElementById('lbl-city').textContent = t.cityLbl;
+            document.getElementById('footer-rights').textContent = t.rights;
+        }
+    </script>
+</body>
+</html>
