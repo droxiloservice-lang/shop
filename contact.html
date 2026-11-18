@@ -367,21 +367,32 @@
             <h2 class="section-title" id="form-title">Get In Touch</h2>
             <p class="section-desc" id="form-desc">أرسل لنا استفسارك وسيقوم فريق الدعم بالرد عليك في أسرع وقت.</p>
 
-            <form action="https://formspree.io/f/xqppbnpr" method="POST">
-                <div class="form-group">
-                    <input type="text" name="name" id="input-name" placeholder="Your Name..." required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" id="input-email" placeholder="servicelosako@gmail.com" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="subject" id="input-subject" placeholder="Subject..." required>
-                </div>
-                <div class="form-group">
-                    <textarea name="message" rows="4" id="input-msg" placeholder="Type Here..." required></textarea>
-                </div>
-                <button type="submit" class="btn-send" id="btn-submit-txt">Send Now</button>
-            </form>
+            <form action="https://api.web3forms.com/submit" method="POST" class="order-form">
+    <!-- مفتاح Web3Forms الجديد الخاص بك -->
+    <input type="hidden" name="access_key" value="1c18bef1-e5f9-46b1-ad77-19947b11ecb9">
+    
+    <!-- اسم المنتج -->
+    <input type="hidden" name="product_name" value="Hello Kitty: Pink Edition (279 MAD)">
+    
+    <!-- حقل مانع السبام الإلزامي لـ Web3Forms -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+    
+    <div class="form-group"><input type="text" name="fullname" placeholder="الاسم الكامل" required></div>
+    <div class="form-group"><input type="tel" name="phone" placeholder="رقم الهاتف (الواتساب)" required></div>
+    <div class="form-group"><input type="text" name="city" placeholder="المدينة" required></div>
+    <div class="form-group"><input type="text" name="address" placeholder="العنوان الكامل (الحي / الشارع)" required></div>
+    <div class="form-group">
+        <select name="size_selected" id="size-select" required>
+            <option value="S" selected>مقاس S</option>
+            <option value="M">مقاس M</option>
+            <option value="L">مقاس L</option>
+            <option value="XL">مقاس XL</option>
+            <option value="XXL">مقاس XXL</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn-add-to-cart">تأكيد الطلب الآن 🚀 (الدفع عند الاستلام - 279 درهم)</button>
+</form>
         </div>
 
         <!-- معلومات الاتصال -->

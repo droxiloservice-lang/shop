@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | DROXILOSHOP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ds-bg: #070707;
+            --ds-card-bg: rgba(18, 18, 18, 0.96);
+            --ds-text: #ffffff;
+            --ds-text-muted: #a0a0a0;
+            --ds-border: rgba(212, 175, 55, 0.3);
+            --ds-gold: #d4af37;
+            --ds-gold-light: #f3e5ab;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--ds-bg); color: var(--ds-text); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+
+        .auth-card {
+            background: var(--ds-card-bg);
+            border: 1px solid var(--ds-border);
+            padding: 30px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+            text-align: center;
+        }
+
+        .auth-brand {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--ds-gold);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--ds-text-muted);
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background: #141414;
+            border: 1px solid var(--ds-border);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-control:focus { border-color: var(--ds-gold); box-shadow: 0 0 10px rgba(212,175,55,0.2); }
+
+        .auth-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--ds-gold), #b38f27);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .auth-btn:hover { opacity: 0.9; transform: scale(1.02); }
+
+        .auth-footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: var(--ds-text-muted);
+        }
+
+        .auth-footer a { color: var(--ds-gold); text-decoration: none; font-weight: 700; }
+        
+        .user-dashboard { display: none; }
+        .dashboard-welcome { font-size: 1.1rem; font-weight: 800; margin-bottom: 15px; color: var(--ds-gold-light); }
+        .logout-btn { background: #e74c3c; color: #fff; margin-top: 15px; border: none; padding: 10px; width: 100%; border-radius: 8px; font-weight: 700; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="auth-card">
+        <div class="auth-brand">DROXILOSHOP</div>
+
+        <!-- نموذج تسجيل الدخول -->
+        <div id="login-form-container">
+            <h2 style="font-size: 1.2rem; margin-bottom: 20px;">تسجيل الدخول إلى حسابك</h2>
+            <form action="https://api.web3forms.com/submit" method="POST" class="order-form">
+    <!-- مفتاح Web3Forms الجديد الخاص بك -->
+    <input type="hidden" name="access_key" value="1c18bef1-e5f9-46b1-ad77-19947b11ecb9">
+    
+    <!-- اسم المنتج -->
+    <input type="hidden" name="product_name" value="Hello Kitty: Pink Edition (279 MAD)">
+    
+    <!-- حقل مانع السبام الإلزامي لـ Web3Forms -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+    
+    <div class="form-group"><input type="text" name="fullname" placeholder="الاسم الكامل" required></div>
+    <div class="form-group"><input type="tel" name="phone" placeholder="رقم الهاتف (الواتساب)" required></div>
+    <div class="form-group"><input type="text" name="city" placeholder="المدينة" required></div>
+    <div class="form-group"><input type="text" name="address" placeholder="العنوان الكامل (الحي / الشارع)" required></div>
+    <div class="form-group">
+        <select name="size_selected" id="size-select" required>
+            <option value="S" selected>مقاس S</option>
+            <option value="M">مقاس M</option>
+            <option value="L">مقاس L</option>
+            <option value="XL">مقاس XL</option>
+            <option value="XXL">مقاس XXL</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn-add-to-cart">تأكيد الطلب الآن 🚀 (الدفع عند الاستلام - 279 درهم)</button>
+</form>
+            <div class="auth-footer">
+                <p>نسيت كلمة المرور؟ <a href="https://wa.me/212725274491?text=سلام، نسيت كلمة المرور الخاصة بحسابي في Droxiloshop" target="_blank">استرجعها عبر واتساب</a></p>
+                <p style="margin-top: 10px;"><a href="../">العودة للرئيسية</a></p>
+            </div>
+        </div>
+
+        <!-- لوحة تحكم الزبون (تظهر بعد تسجيل الدخول) -->
+        <div id="userDashboard" class="user-dashboard">
+            <div class="dashboard-welcome" id="welcomeMsg">أهلاً بك يا بطل!</div>
+            <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 15px;">حسابك مسجل بنجاح ومرتبط بمتجرنا.</p>
+            <a href="../" class="auth-btn" style="display: block; text-decoration: none; line-height: normal; text-align: center; margin-bottom: 10px;">التسوق الآن</a>
+            <button class="logout-btn" onclick="handleLogout()">تسجيل الخروج</button>
+        </div>
+    </div>
+
+    <script>
+        // التحقق مما إذا كان الزبون مسجلاً مسبقاً
+        window.onload = function() {
+            const savedUser = localStorage.getItem('droxilo_logged_user');
+            if (savedUser) {
+                showDashboard(savedUser);
+            }
+        };
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('userEmail').value;
+            
+            // حفظ الحساب في ذاكرة المتصفح للأبد (حتى يضغط تسجيل خروج)
+            localStorage.setItem('droxilo_logged_user', email);
+            showDashboard(email);
+        }
+
+        function showDashboard(email) {
+            document.getElementById('login-form-container').style.display = 'none';
+            document.getElementById('userDashboard').style.display = 'block';
+            document.getElementById('welcomeMsg').textContent = `أهلاً بك، ${email}`;
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('droxilo_logged_user');
+            document.getElementById('userDashboard').style.display = 'none';
+            document.getElementById('login-form-container').style.display = 'block';
+            document.getElementById('loginForm').reset();
+        }
+    </script>
+</body>
+</html>

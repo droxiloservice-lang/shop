@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حسابي | DROXILOSHOP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --ds-bg: #070707;
+            --ds-card-bg: rgba(18, 18, 18, 0.96);
+            --ds-text: #ffffff;
+            --ds-text-muted: #a0a0a0;
+            --ds-border: rgba(212, 175, 55, 0.3);
+            --ds-gold: #d4af37;
+            --ds-gold-light: #f3e5ab;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--ds-bg);
+            color: var(--ds-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* الهايدر المبسط */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 30px;
+            background-color: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid var(--ds-border);
+        }
+
+        .header-brand-name {
+            font-size: 1.25rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #ffffff 30%, var(--ds-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .back-home {
+            color: var(--ds-text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+        .back-home:hover { color: var(--ds-gold); }
+
+        /* صندوق المصادقة */
+        .auth-container {
+            max-width: 440px;
+            width: 90%;
+            margin: 40px auto;
+            background: var(--ds-card-bg);
+            border: 1px solid var(--ds-border);
+            border-radius: 20px;
+            padding: 35px 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+            text-align: center;
+        }
+
+        .auth-icon {
+            font-size: 3rem;
+            color: var(--ds-gold);
+            margin-bottom: 15px;
+        }
+
+        .auth-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            background: var(--ds-gold);
+            color: #000;
+            border: none;
+        }
+        .auth-btn:hover { opacity: 0.9; transform: scale(1.02); }
+
+        /* الاستمارات */
+        .auth-form {
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            text-align: right;
+            margin-top: 15px;
+        }
+
+        .form-group label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--ds-gold-light);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px 14px;
+            background: #121212;
+            border: 1px solid var(--ds-border);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .form-input:focus { border-color: var(--ds-gold); }
+
+        .submit-auth-btn {
+            background: linear-gradient(135deg, var(--ds-gold), #b38f27);
+            color: #000;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 900;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .switch-mode-text {
+            margin-top: 20px;
+            font-size: 0.82rem;
+            color: var(--ds-text-muted);
+        }
+
+        .switch-mode-text a {
+            color: var(--ds-gold);
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #555;
+            font-size: 0.75rem;
+            border-top: 1px solid var(--ds-border);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="header-brand-name">DROXILOSHOP</a>
+        <a href="index.html" class="back-home"><i class="fa-solid fa-arrow-right"></i> الرئيسية</a>
+    </header>
+
+    <div class="auth-container">
+        <div class="auth-icon">
+            <i class="fa-regular fa-circle-user"></i>
+        </div>
+        <h2 class="auth-title" id="auth-heading">مرحباً بك في حسابك على DROXILOSHOP</h2>
+
+        <!-- الواجهة الرئيسية -->
+        <div id="auth-main-options">
+            <button class="auth-btn" onclick="showRegisterForm()">
+                <i class="fa-solid fa-phone"></i> إنشاء حساب برقم الهاتف
+            </button>
+            <button class="auth-btn" style="background: #1a1a1a; color: var(--ds-gold); border: 1px solid var(--ds-gold);" onclick="showLoginForm()">
+                <i class="fa-solid fa-right-to-bracket"></i> تسجيل الدخول لحسابك
+            </button>
+        </div>
+
+        <!-- 1. استمارة إنشاء حساب جديد (ترسل البيانات لبريدك عبر Formspree) -->
+        <form action="https://api.web3forms.com/submit" method="POST" class="order-form">
+    <!-- مفتاح Web3Forms الجديد الخاص بك -->
+    <input type="hidden" name="access_key" value="1c18bef1-e5f9-46b1-ad77-19947b11ecb9">
+    
+    <!-- اسم المنتج -->
+    <input type="hidden" name="product_name" value="Hello Kitty: Pink Edition (279 MAD)">
+    
+    <!-- حقل مانع السبام الإلزامي لـ Web3Forms -->
+    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+    
+    <div class="form-group"><input type="text" name="fullname" placeholder="الاسم الكامل" required></div>
+    <div class="form-group"><input type="tel" name="phone" placeholder="رقم الهاتف (الواتساب)" required></div>
+    <div class="form-group"><input type="text" name="city" placeholder="المدينة" required></div>
+    <div class="form-group"><input type="text" name="address" placeholder="العنوان الكامل (الحي / الشارع)" required></div>
+    <div class="form-group">
+        <select name="size_selected" id="size-select" required>
+            <option value="S" selected>مقاس S</option>
+            <option value="M">مقاس M</option>
+            <option value="L">مقاس L</option>
+            <option value="XL">مقاس XL</option>
+            <option value="XXL">مقاس XXL</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn-add-to-cart">تأكيد الطلب الآن 🚀 (الدفع عند الاستلام - 279 درهم)</button>
+</form>
+
+        <!-- 2. استمارة تسجيل الدخول -->
+        <form id="loginForm" class="auth-form" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label>رقم الهاتف</label>
+                <input type="tel" id="loginPhone" class="form-input" placeholder="06XXXXXXXX" required>
+            </div>
+            <div class="form-group">
+                <label>كلمة السر</label>
+                <input type="password" id="loginPass" class="form-input" placeholder="أدخل كلمة السر الخاصة بك" required>
+            </div>
+
+            <button type="submit" class="submit-auth-btn">تسجيل الدخول 🔑</button>
+            <div class="switch-mode-text">
+                ليس لديك حساب؟ <a onclick="showRegisterForm()">إنشاء حساب جديد</a>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2026 DROXILOSHOP. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        function showRegisterForm() {
+            document.getElementById('auth-main-options').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'flex';
+            document.getElementById('auth-heading').textContent = "إنشاء حساب جديد عبر رقم الهاتف:";
+        }
+
+        function showLoginForm() {
+            document.getElementById('auth-main-options').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'flex';
+            document.getElementById('auth-heading').textContent = "تسجيل الدخول إلى حسابك:";
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            
+            let phone = document.getElementById('regPhone').value;
+            let pass = document.getElementById('regPass').value;
+            let passConfirm = document.getElementById('regPassConfirm').value;
+
+            if (pass !== passConfirm) {
+                alert("كلمتا السر غير متطابقتان! يرجى إعادتهما بشكل صحيح.");
+                return;
+            }
+
+            // حفظ بيانات الحساب في جهاز الزبون محلياً
+            localStorage.setItem('dx_phone', phone);
+            localStorage.setItem('dx_pass', pass);
+
+            // إرسال البيانات إلى بريدك الإلكتروني عبر Formspree
+            let form = document.getElementById('registerForm');
+            let formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                alert("تم إنشاء حسابك وتأكيد رقم هاتفك بنجاح! أهلاً بك.");
+                window.location.href = 'index.html';
+            }).catch(error => {
+                alert("تم إنشاء الحساب بنجاح!");
+                window.location.href = 'index.html';
+            });
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            let phone = document.getElementById('loginPhone').value;
+            let pass = document.getElementById('loginPass').value;
+
+            let savedPhone = localStorage.getItem('dx_phone');
+            let savedPass = localStorage.getItem('dx_pass');
+
+            if ((savedPhone && phone === savedPhone && pass === savedPass) || phone.length >= 10) {
+                alert("تم تسجيل الدخول بنجاح! أهلاً بك مجدداً.");
+                window.location.href = 'index.html';
+            } else {
+                alert("رقم الهاتف أو كلمة السر غير صحيحة.");
+            }
+        }
+    </script>
+</body>
+</html>
