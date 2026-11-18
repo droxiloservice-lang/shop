@@ -32,7 +32,7 @@
             overflow-x: hidden;
         }
 
-        /* شريط الأمان والثقة العلوي */
+        /* --- شريط الثقة والأمان العلوي --- */
         .security-banner {
             background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
             border-bottom: 1px solid var(--ds-border);
@@ -179,150 +179,6 @@
             text-transform: uppercase;
         }
 
-        /* --- سلة المشتريات المنزلقة (Cart Drawer) مثل ووردبريس --- */
-        .cart-drawer-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            display: none;
-            backdrop-filter: blur(4px);
-        }
-
-        .cart-drawer {
-            position: fixed;
-            top: 0;
-            left: -400px;
-            width: 100%;
-            max-width: 380px;
-            height: 100%;
-            background: #111;
-            border-right: 1px solid var(--ds-border);
-            z-index: 2001;
-            transition: left 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            padding: 25px;
-        }
-
-        .cart-drawer.open {
-            left: 0;
-        }
-
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--ds-border);
-            padding-bottom: 15px;
-            font-size: 1.1rem;
-            font-weight: 900;
-            color: var(--ds-gold);
-        }
-
-        .close-cart {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.3rem;
-            cursor: pointer;
-        }
-
-        .cart-items-body {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 15px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .cart-item-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255,255,255,0.03);
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid var(--ds-border);
-        }
-
-        .cart-item-img {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            border-radius: 6px;
-        }
-
-        .cart-item-info {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .cart-item-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .cart-item-price {
-            font-size: 0.85rem;
-            font-weight: 900;
-            color: var(--ds-gold);
-        }
-
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: #000;
-            padding: 2px 8px;
-            border-radius: 4px;
-            border: 1px solid var(--ds-border);
-        }
-
-        .qty-btn {
-            background: none;
-            border: none;
-            color: var(--ds-gold);
-            font-weight: 900;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-
-        .cart-footer {
-            border-top: 1px solid var(--ds-border);
-            padding-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .cart-total-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 1rem;
-            font-weight: 900;
-        }
-
-        .checkout-drawer-btn {
-            background: linear-gradient(135deg, var(--ds-gold), #b38f27);
-            color: #000;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 900;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-        }
-
         /* --- سلايدر الصور الفاخر --- */
         .hero-slider-container {
             width: 100%;
@@ -405,6 +261,7 @@
 
         .section-title span { color: var(--ds-gold); }
 
+        /* أزرار الفلترة والأقسام */
         .category-filters {
             display: flex;
             gap: 10px;
@@ -507,6 +364,7 @@
             margin-top: auto;
             padding-top: 15px;
             border-top: 1px solid rgba(255,255,255,0.06);
+            gap: 8px;
         }
 
         .product-price {
@@ -515,45 +373,237 @@
             color: var(--ds-gold);
         }
 
-        /* أزرار "اطلب الآن" وزر الإضافة للسلة بجانبها علامة + */
-        .product-actions-group {
+        .card-actions-group {
             display: flex;
+            align-items: center;
             gap: 8px;
+        }
+
+        .add-plus-btn {
+            background: #1c1c1c;
+            color: var(--ds-gold);
+            border: 1px solid var(--ds-gold);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-plus-btn:hover {
+            background: var(--ds-gold);
+            color: #000;
+            transform: scale(1.08);
         }
 
         .buy-btn {
             background: linear-gradient(135deg, var(--ds-gold), #b38f27);
             color: #000;
             border: none;
-            padding: 8px 14px;
+            padding: 8px 16px;
             border-radius: 8px;
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             font-weight: 800;
             cursor: pointer;
             transition: 0.3s;
             text-decoration: none;
-            flex-grow: 1;
-            text-align: center;
         }
 
-        .add-to-cart-quick-btn {
-            background: #1a1a1a;
-            border: 1px solid var(--ds-gold);
+        .buy-btn:hover {
+            opacity: 0.9;
+            transform: scale(1.03);
+        }
+
+        /* --- سلة المشتريات الجانبية (Cart Drawer) --- */
+        .cart-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 1500;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            left: -400px;
+            width: 100%;
+            max-width: 380px;
+            height: 100%;
+            background: #121212;
+            border-right: 1px solid var(--ds-border);
+            z-index: 1600;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 25px 20px;
+            transition: left 0.35s ease;
+            box-shadow: 5px 0 30px rgba(0,0,0,0.9);
+        }
+
+        .cart-drawer.open {
+            left: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+        }
+
+        .cart-header h3 {
             color: var(--ds-gold);
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
+            font-size: 1.3rem;
+            font-weight: 900;
+        }
+
+        .close-cart-btn {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+
+        .cart-items-list {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cart-item-card {
+            background: #1a1a1a;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 10px;
+            padding: 12px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-weight: 900;
-            transition: 0.2s;
+            justify-content: space-between;
+            gap: 10px;
         }
 
-        .add-to-cart-quick-btn:hover {
-            background: var(--ds-gold);
+        .cart-item-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .cart-item-info {
+            flex-grow: 1;
+        }
+
+        .cart-item-name {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .cart-item-price {
+            font-size: 0.85rem;
+            font-weight: 900;
+            color: var(--ds-gold);
+            margin-top: 4px;
+        }
+
+        .cart-qty-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #0e0e0e;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid #333;
+        }
+
+        .qty-btn {
+            background: transparent;
+            border: none;
+            color: var(--ds-gold);
+            font-weight: 900;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 0 4px;
+        }
+
+        .cart-footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-weight: 900;
+        }
+
+        .cart-total-amount {
+            color: var(--ds-gold);
+        }
+
+        .proceed-checkout-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--ds-gold), #c59b27);
             color: #000;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .proceed-checkout-btn:hover {
+            opacity: 0.92;
+        }
+
+        /* --- نافذة استمارة إتمام الطلب (Checkout Modal) --- */
+        #checkout-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.88);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content-box {
+            background: #121212;
+            border: 1px solid var(--ds-gold);
+            padding: 30px;
+            border-radius: 16px;
+            width: 92%;
+            max-width: 460px;
+            position: relative;
+        }
+        .close-modal-btn {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* الفوتر الاحترافي الفاخر */
@@ -628,21 +678,18 @@
 
     <!-- شريط الأمان والثقة العلوي -->
     <div class="security-banner">
-        <div class="security-item"><i class="fa-solid fa-shield-halved" style="color: var(--ds-gold);"></i> <span data-i18n="sec_1">الدفع عند الاستلام بآمان تام</span></div>
-        <div class="security-item"><i class="fa-solid fa-truck-fast" style="color: var(--ds-gold);"></i> <span data-i18n="sec_2">توصيل سريع لكافة المدن المغربية</span></div>
-        <div class="security-item"><i class="fa-solid fa-rotate-left" style="color: var(--ds-gold);"></i> <span data-i18n="sec_3">إمكانية الاستبدال خلال 7 أيام</span></div>
+        <div class="security-item"><i class="fa-solid fa-shield-halved" style="color: var(--ds-gold);"></i> الدفع عند الاستلام بآمان تام</div>
+        <div class="security-item"><i class="fa-solid fa-truck-fast" style="color: var(--ds-gold);"></i> توصيل سريع لكافة المدن المغربية</div>
+        <div class="security-item"><i class="fa-solid fa-rotate-left" style="color: var(--ds-gold);"></i> إمكانية الاستبدال خلال 7 أيام</div>
     </div>
 
-    <!-- الهايدر الفاخر الموحد -->
+    <!-- الهايدر الموحد الفاخر (بدون أيقونة الحساب) -->
     <header>
         <div class="header-left-actions">
-            <button class="action-icon-btn" onclick="toggleCartDrawer()" title="السلة">
+            <button class="action-icon-btn" title="السلة" onclick="openCartDrawer()">
                 <i class="fa-solid fa-bag-shopping"></i>
-                <span class="cart-badge" id="cart-count">0</span>
+                <span class="cart-badge" id="cart-badge-count">0</span>
             </button>
-            <a href="login.html" class="action-icon-btn" title="حسابي">
-                <i class="fa-regular fa-user"></i>
-            </a>
             <div class="lang-switch">
                 <button class="lang-btn active" onclick="switchLanguage('ar', this)">AR</button>
                 <button class="lang-btn" onclick="switchLanguage('fr', this)">FR</button>
@@ -654,9 +701,9 @@
         </div>
 
         <ul class="nav-links">
-            <li><a href="index.html" id="nav-home" class="active" data-i18n="nav_home">HOME</a></li>
-            <li><a href="about us.html" id="nav-about" data-i18n="nav_about">ABOUT US</a></li>
-            <li><a href="contact.html" id="nav-contact" data-i18n="nav_contact">CONTACT US</a></li>
+            <li><a href="index.html" id="nav-home" class="active">HOME</a></li>
+            <li><a href="about.html" id="nav-about">ABOUT US</a></li>
+            <li><a href="contact.html" id="nav-contact">CONTACT US</a></li>
         </ul>
 
         <a href="index.html" class="header-brand-box">
@@ -664,25 +711,6 @@
             <img src="LOGO.png" alt="Logo" class="header-logo-img" onerror="this.style.display='none'">
         </a>
     </header>
-
-    <!-- سلة المشتريات الجانبية (Cart Drawer) -->
-    <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCartDrawer()"></div>
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
-            <span data-i18n="cart_title">سلة المشتريات</span>
-            <button class="close-cart" onclick="toggleCartDrawer()">&times;</button>
-        </div>
-        <div class="cart-items-body" id="cartItemsContainer">
-            <p style="color: #777; text-align: center; margin-top: 40px;" data-i18n="cart_empty">سلة المشتريات فارغة حالياً</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total-row">
-                <span data-i18n="cart_total">المجموع:</span>
-                <span id="cartTotalPrice" style="color: var(--ds-gold);">0 MAD</span>
-            </div>
-            <button class="checkout-drawer-btn" onclick="checkoutAction()" data-i18n="cart_checkout">إتمام الطلب (الدفع عند الاستلام)</button>
-        </div>
-    </div>
 
     <!-- سلايدر الصور التلقائي -->
     <div class="hero-slider-container">
@@ -702,22 +730,22 @@
         <div class="feature-box">
             <div class="feature-icon"><i class="fa-solid fa-medal"></i></div>
             <div>
-                <div class="feature-title" data-i18n="feat_1_title">قطن ثقيل 320GSM</div>
-                <div class="feature-desc" data-i18n="feat_1_desc">جودة أصلية فاخرة تدوم طويلاً</div>
+                <div class="feature-title">قطن ثقيل 320GSM</div>
+                <div class="feature-desc">جودة أصلية فاخرة تدوم طويلاً</div>
             </div>
         </div>
         <div class="feature-box">
             <div class="feature-icon"><i class="fa-solid fa-print"></i></div>
             <div>
-                <div class="feature-title" data-i18n="feat_2_title">طباعة DTF متطورة</div>
-                <div class="feature-desc" data-i18n="feat_2_desc">مقاومة كاملة للغسيل المتكرر</div>
+                <div class="feature-title">طباعة DTF متطورة</div>
+                <div class="feature-desc">مقاومة كاملة للغسيل المتكرر</div>
             </div>
         </div>
         <div class="feature-box">
             <div class="feature-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
             <div>
-                <div class="feature-title" data-i18n="feat_3_title">دفع آمن عند الاستلام</div>
-                <div class="feature-desc" data-i18n="feat_3_desc">لا توجد أي مخاطرة مسبقة</div>
+                <div class="feature-title">دفع آمن عند الاستلام</div>
+                <div class="feature-desc">لا توجد أي مخاطرة مسبقة</div>
             </div>
         </div>
     </div>
@@ -727,9 +755,9 @@
         <div class="section-header">
             <h2 class="section-title">FEATURED <span>COLLECTION</span></h2>
             <div class="category-filters">
-                <button class="filter-btn active" onclick="filterProducts('all')" data-i18n="filter_all">الكل (All)</button>
-                <button class="filter-btn" onclick="filterProducts('anime')" data-i18n="filter_anime">هوديات الأنمي</button>
-                <button class="filter-btn" onclick="filterProducts('edition')" data-i18n="filter_edition">إصدارات خاصة</button>
+                <button class="filter-btn active" onclick="filterProducts('all')">الكل (All)</button>
+                <button class="filter-btn" onclick="filterProducts('anime')">هوديات الأنمي</button>
+                <button class="filter-btn" onclick="filterProducts('edition')">إصدارات خاصة</button>
             </div>
         </div>
         
@@ -738,16 +766,16 @@
             <!-- المنتوج الأول -->
             <div class="product-card" data-category="anime">
                 <div class="product-img-box">
-                    <span class="product-badge" data-i18n="badge_best">الأكثر مبيعاً</span>
+                    <span class="product-badge">الأكثر مبيعاً</span>
                     <img src="ragnarok product.jpg" alt="Ragnarok" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=500&auto=format&fit=crop'">
                 </div>
                 <div class="product-details">
-                    <h3 class="product-title">Ragnarok: WHITE Edition</h3>
+                    <h3 class="product-title">Ragnarok: WHITE Edition SHIPPING ALL OVER MOROCCO</h3>
                     <div class="product-price-row">
                         <span class="product-price">279 MAD</span>
-                        <div class="product-actions-group">
-                            <a href="ragnarok.html" class="buy-btn" data-i18n="btn_order">اطلب الان</a>
-                            <button class="add-to-cart-quick-btn" onclick="addToCart('Ragnarok: WHITE Edition', 279, 'ragnarok product.jpg')" title="أضف للسلة">+</button>
+                        <div class="card-actions-group">
+                            <button class="add-plus-btn" title="أضف إلى السلة">+</button>
+                            <a href="ragnarok.html" class="buy-btn">اطلب الان</a>
                         </div>
                     </div>
                 </div>
@@ -756,16 +784,16 @@
             <!-- المنتوج الثاني -->
             <div class="product-card" data-category="anime">
                 <div class="product-img-box">
-                    <span class="product-badge" data-i18n="badge_excl">حصري</span>
+                    <span class="product-badge">حصري</span>
                     <img src="back berserk.jpg" alt="Berserk" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=500&auto=format&fit=crop'">
                 </div>
                 <div class="product-details">
-                    <h3 class="product-title">Berserk : WHITE Edition</h3>
+                    <h3 class="product-title">Berserk : WHITE Edition SHIPPING ALL OVER MOROCCO</h3>
                     <div class="product-price-row">
                         <span class="product-price">279 MAD</span>
-                        <div class="product-actions-group">
-                            <a href="berserk.html" class="buy-btn" data-i18n="btn_order">اطلب الان</a>
-                            <button class="add-to-cart-quick-btn" onclick="addToCart('Berserk : WHITE Edition', 279, 'back berserk.jpg')" title="أضف للسلة">+</button>
+                        <div class="card-actions-group">
+                            <button class="add-plus-btn" title="أضف إلى السلة">+</button>
+                            <a href="berserk.html" class="buy-btn">اطلب الان</a>
                         </div>
                     </div>
                 </div>
@@ -778,12 +806,12 @@
                     <img src="back hoodie hello kitty.png" alt="Hello Kitty" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=500&auto=format&fit=crop'">
                 </div>
                 <div class="product-details">
-                    <h3 class="product-title">Hello kitty: Pink Edition</h3>
+                    <h3 class="product-title">Hello kitty: Pink Edition SHIPPING ALL OVER MOROCCO</h3>
                     <div class="product-price-row">
                         <span class="product-price">279 MAD</span>
-                        <div class="product-actions-group">
-                            <a href="hello kitty landing page 1.html" class="buy-btn" data-i18n="btn_order">اطلب الان</a>
-                            <button class="add-to-cart-quick-btn" onclick="addToCart('Hello kitty: Pink Edition', 279, 'back hoodie hello kitty.png')" title="أضف للسلة">+</button>
+                        <div class="card-actions-group">
+                            <button class="add-plus-btn" title="أضف إلى السلة">+</button>
+                            <a href="hellokitty.html" class="buy-btn">اطلب الان</a>
                         </div>
                     </div>
                 </div>
@@ -796,12 +824,12 @@
                     <img src="back hoodie hello kitty2.png" alt="Hello Kitty 2" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=500&auto=format&fit=crop'">
                 </div>
                 <div class="product-details">
-                    <h3 class="product-title">Hello kitty: Version 2 Edition</h3>
+                    <h3 class="product-title">Hello kitty: Version 2 Edition SHIPPING ALL OVER MOROCCO</h3>
                     <div class="product-price-row">
                         <span class="product-price">279 MAD</span>
-                        <div class="product-actions-group">
-                            <a href="hello kitty landing page 2.html" class="buy-btn" data-i18n="btn_order">اطلب الان</a>
-                            <button class="add-to-cart-quick-btn" onclick="addToCart('Hello kitty: Version 2 Edition', 279, 'back hoodie hello kitty2.png')" title="أضف للسلة">+</button>
+                        <div class="card-actions-group">
+                            <button class="add-plus-btn" title="أضف إلى السلة">+</button>
+                            <a href="hello kitty 2.html" class="buy-btn">اطلب الان</a>
                         </div>
                     </div>
                 </div>
@@ -814,12 +842,12 @@
                     <img src="222.jpg" alt="Toji" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=500&auto=format&fit=crop'">
                 </div>
                 <div class="product-details">
-                    <h3 class="product-title">Toji fushigoro: BLACK Edition</h3>
+                    <h3 class="product-title">Toji fushigoro: BLACK Edition SHIPPING ALL OVER MOROCCO</h3>
                     <div class="product-price-row">
                         <span class="product-price">279 MAD</span>
-                        <div class="product-actions-group">
-                            <a href="toji landing page.html" class="buy-btn" data-i18n="btn_order">اطلب الان</a>
-                            <button class="add-to-cart-quick-btn" onclick="addToCart('Toji fushigoro: BLACK Edition', 279, '222.jpg')" title="أضف للسلة">+</button>
+                        <div class="card-actions-group">
+                            <button class="add-plus-btn" title="أضف إلى السلة">+</button>
+                            <a href="toji landing page.html" class="buy-btn">اطلب الان</a>
                         </div>
                     </div>
                 </div>
@@ -828,237 +856,87 @@
         </div>
     </div>
 
+    <!-- سلة المشتريات الجانبية (Cart Drawer) -->
+    <div class="cart-overlay" id="cart-overlay" onclick="closeCartDrawer()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>سلة المشتريات</h3>
+            <button class="close-cart-btn" onclick="closeCartDrawer()">&times;</button>
+        </div>
+
+        <div class="cart-items-list" id="cart-items-container">
+            <p style="text-align: center; color: #888; margin-top: 40px;">السلة فارغة حالياً</p>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>المجموع:</span>
+                <span class="cart-total-amount" id="cart-total-price">MAD 0</span>
+            </div>
+            <button class="proceed-checkout-btn" onclick="openCheckoutModal()">إتمام الطلب (الدفع عند الاستلام)</button>
+        </div>
+    </div>
+
+    <!-- نافذة استمارة إتمام الطلب (Checkout Modal) المربوطة بـ Web3Forms -->
+    <div id="checkout-modal">
+        <div class="modal-content-box">
+            <span class="close-modal-btn" onclick="closeCheckoutModal()">&times;</span>
+            <h3 style="color: var(--ds-gold); margin-bottom: 15px; text-align: center; font-weight: 900;">معلومات التوصيل لتأكيد الطلب</h3>
+            
+            <form action="https://api.web3forms.com/submit" method="POST" onsubmit="clearCartAfterSubmit()">
+                <input type="hidden" name="access_key" value="1c18bef1-e5f9-46b1-ad77-19947b11ecb9">
+                <input type="hidden" name="subject" value="طلبية جديدة من DROXILOSHOP">
+                <input type="hidden" name="order_details" id="order-details-input">
+                <input type="hidden" name="total_amount" id="order-total-input">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <div class="form-group" style="margin-bottom: 12px;">
+                    <input type="text" name="fullname" placeholder="الاسم الكامل" required style="width: 100%; padding: 11px; background: #222; border: 1px solid #444; color: #fff; border-radius: 8px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 12px;">
+                    <input type="tel" name="phone" placeholder="رقم الهاتف (الواتساب)" required style="width: 100%; padding: 11px; background: #222; border: 1px solid #444; color: #fff; border-radius: 8px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 12px;">
+                    <input type="text" name="city" placeholder="المدينة" required style="width: 100%; padding: 11px; background: #222; border: 1px solid #444; color: #fff; border-radius: 8px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 12px;">
+                    <input type="text" name="address" placeholder="العنوان الكامل (الحي / الشارع)" required style="width: 100%; padding: 11px; background: #222; border: 1px solid #444; color: #fff; border-radius: 8px;">
+                </div>
+                <div class="form-group" style="margin-bottom: 18px;">
+                    <input type="text" name="size_note" placeholder="المقاسات المطلوبة (مثال: L, XL) أو ملاحظة" required style="width: 100%; padding: 11px; background: #222; border: 1px solid #444; color: #fff; border-radius: 8px;">
+                </div>
+
+                <button type="submit" style="width: 100%; background: var(--ds-gold); color: #000; padding: 13px; border: none; border-radius: 8px; font-weight: 900; font-size: 1rem; cursor: pointer;">تأكيد وإرسال الطلب 🚀</button>
+            </form>
+        </div>
+    </div>
+
     <!-- الفوتر الاحترافي الفاخر -->
     <footer>
         <div class="footer-content">
             <div class="footer-col">
-                <h4 data-i18n="footer_about_title">عن DROXILOSHOP</h4>
-                <p data-i18n="footer_about_desc">وجهتك الأولى في المغرب لأزياء الستريتوير الفاخرة، هوديات ثقيلة بتصاميم حصرية وأعلى معايير الجودة.</p>
+                <h4>عن DROXILOSHOP</h4>
+                <p>وجهتك الأولى في المغرب لأزياء الستريتوير الفاخرة، هوديات ثقيلة بتصاميم حصرية وأعلى معايير الجودة.</p>
             </div>
             <div class="footer-col">
-                <h4 data-i18n="footer_links_title">روابط سريعة</h4>
-                <a href="index.html" data-i18n="nav_home">الرئيسية</a>
-                <a href="about.html" data-i18n="nav_about">من نحن</a>
-                <a href="contact.html" data-i18n="nav_contact">تواصل معنا</a>
+                <h4>روابط سريعة</h4>
+                <a href="index.html">الرئيسية</a>
+                <a href="about.html">من نحن</a>
+                <a href="contact.html">تواصل معنا</a>
             </div>
             <div class="footer-col">
-                <h4 data-i18n="footer_support_title">خدمة الزبناء والدعم</h4>
+                <h4>خدمة الزبناء والدعم</h4>
                 <p>الواتساب: 0725274491</p>
-                <p data-i18n="footer_shipping_info">التوصيل لكافة المدن المغربية والدفع عند الاستلام</p>
+                <p>التوصيل لكافة المدن المغربية والدفع عند الاستلام</p>
             </div>
         </div>
         <div class="footer-bottom">
             <div class="footer-brand">DROXILOSHOP</div>
-            <div class="footer-text" id="footer-rights" data-i18n="footer_rights">© 2026 جميع الحقوق محفوظة. التوصيل متوفر لكافة المدن المغربية.</div>
+            <div class="footer-text" id="footer-rights">© 2026 جميع الحقوق محفوظة. التوصيل متوفر لكافة المدن المغربية.</div>
         </div>
     </footer>
 
     <script>
-        /* --- 1. نظام سلة المشتريات التفاعلية (Cart Drawer) --- */
-        let cart = [];
-
-        function toggleCartDrawer() {
-            document.getElementById('cartDrawer').classList.toggle('open');
-            document.getElementById('cartOverlay').classList.toggle('open');
-            renderCart();
-        }
-
-        function addToCart(name, price, img) {
-            let existingItem = cart.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.qty += 1;
-            } else {
-                cart.push({ name, price, img, qty: 1 });
-            }
-            updateCartBadge();
-            toggleCartDrawer(); // تفتح السلة تلقائياً عند الضغط على +
-        }
-
-        function changeQty(name, delta) {
-            let item = cart.find(i => i.name === name);
-            if (item) {
-                item.qty += delta;
-                if (item.qty <= 0) {
-                    cart = cart.filter(i => i.name !== name);
-                }
-            }
-            updateCartBadge();
-            renderCart();
-        }
-
-        function updateCartBadge() {
-            let totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-            document.getElementById('cart-count').textContent = totalQty;
-        }
-
-        function renderCart() {
-            const container = document.getElementById('cartItemsContainer');
-            const totalEl = document.getElementById('cartTotalPrice');
-            
-            if (cart.length === 0) {
-                container.innerHTML = `<p style="color: #777; text-align: center; margin-top: 40px;" data-i18n="cart_empty">${translations[currentLang].cart_empty}</p>`;
-                totalEl.textContent = "0 MAD";
-                return;
-            }
-
-            let html = '';
-            let totalPrice = 0;
-
-            cart.forEach(item => {
-                totalPrice += item.price * item.qty;
-                html += `
-                    <div class="cart-item-row">
-                        <img src="${item.img}" class="cart-item-img" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=100&auto=format&fit=crop'">
-                        <div class="cart-item-info">
-                            <div class="cart-item-title">${item.name}</div>
-                            <div class="cart-item-price">${item.price * item.qty} MAD</div>
-                        </div>
-                        <div class="quantity-controls">
-                            <button class="qty-btn" onclick="changeQty('${item.name}', -1)">-</button>
-                            <span style="font-size: 0.85rem; font-weight: 900;">${item.qty}</span>
-                            <button class="qty-btn" onclick="changeQty('${item.name}', 1)">+</button>
-                        </div>
-                    </div>
-                `;
-            });
-
-            container.innerHTML = html;
-            totalEl.textContent = totalPrice + " MAD";
-        }
-
-        function checkoutAction() {
-            if (cart.length === 0) {
-                alert("السلة فارغة!");
-                return;
-            }
-            alert("تم إرسال طلبك بنجاح! سيتم التواصل معك عبر الواتساب لتأكيد عنوان التوصيل.");
-            cart = [];
-            updateCartBadge();
-            toggleCartDrawer();
-        }
-
-        /* --- 2. نظام الترجمة الشامل لجميع كلمات الموقع (AR / FR / EN) --- */
-        let currentLang = 'ar';
-
-        const translations = {
-            ar: {
-                sec_1: "الدفع عند الاستلام بآمان تام",
-                sec_2: "توصيل سريع لكافة المدن المغربية",
-                sec_3: "إمكانية الاستبدال خلال 7 أيام",
-                nav_home: "HOME",
-                nav_about: "ABOUT US",
-                nav_contact: "CONTACT US",
-                cart_title: "سلة المشتريات",
-                cart_empty: "سلة المشتريات فارغة حالياً",
-                cart_total: "المجموع:",
-                cart_checkout: "إتمام الطلب (الدفع عند الاستلام)",
-                feat_1_title: "قطن ثقيل 320GSM",
-                feat_1_desc: "جودة أصلية فاخرة تدوم طويلاً",
-                feat_2_title: "طباعة DTF متطورة",
-                feat_2_desc: "مقاومة كاملة للغسيل المتكرر",
-                feat_3_title: "دفع آمن عند الاستلام",
-                feat_3_desc: "لا توجد أي مخاطرة مسبقة",
-                filter_all: "الكل (All)",
-                filter_anime: "هوديات الأنمي",
-                filter_edition: "إصدارات خاصة",
-                badge_best: "الأكثر مبيعاً",
-                badge_excl: "حصري",
-                btn_order: "اطلب الان",
-                footer_about_title: "عن DROXILOSHOP",
-                footer_about_desc: "وجهتك الأولى في المغرب لأزياء الستريتوير الفاخرة، هوديات ثقيلة بتصاميم حصرية وأعلى معايير الجودة.",
-                footer_links_title: "روابط سريعة",
-                footer_support_title: "خدمة الزبناء والدعم",
-                footer_shipping_info: "التوصيل لكافة المدن المغربية والدفع عند الاستلام",
-                footer_rights: "© 2026 جميع الحقوق محفوظة. التوصيل متوفر لكافة المدن المغربية."
-            },
-            fr: {
-                sec_1: "Paiement à la livraison en toute sécurité",
-                sec_2: "Livraison rapide dans toutes les villes du Maroc",
-                sec_3: "Possibilité de retour sous 7 jours",
-                nav_home: "ACCUEIL",
-                nav_about: "À PROPOS",
-                nav_contact: "CONTACT",
-                cart_title: "Panier d'achat",
-                cart_empty: "Votre panier est actuellement vide",
-                cart_total: "Total:",
-                cart_checkout: "Commander (Paiement à la livraison)",
-                feat_1_title: "Coton lourd 320GSM",
-                feat_1_desc: "Qualité originale et durable",
-                feat_2_title: "Impression DTF avancée",
-                feat_2_desc: "Résistante aux lavages fréquents",
-                feat_3_title: "Paiement sécurisé",
-                feat_3_desc: "Aucun risque à l'avance",
-                filter_all: "Tous (All)",
-                filter_anime: "Hoodies Anime",
-                filter_edition: "Éditions Spéciales",
-                badge_best: "Meilleures ventes",
-                badge_excl: "Exclusif",
-                btn_order: "Commander",
-                footer_about_title: "À propos de DROXILOSHOP",
-                footer_about_desc: "Votre première destination au Maroc pour le streetwear de luxe, hoodies lourds aux designs exclusifs.",
-                footer_links_title: "Liens rapides",
-                footer_support_title: "Service client et support",
-                footer_shipping_info: "Livraison partout au Maroc et paiement à la livraison",
-                footer_rights: "© 2026 Tous droits réservés. Livraison partout au Maroc."
-            },
-            en: {
-                sec_1: "Cash on delivery with full security",
-                sec_2: "Fast shipping to all Moroccan cities",
-                sec_3: "7-day return policy",
-                nav_home: "HOME",
-                nav_about: "ABOUT US",
-                nav_contact: "CONTACT US",
-                cart_title: "Shopping Cart",
-                cart_empty: "Your cart is currently empty",
-                cart_total: "Total:",
-                cart_checkout: "Checkout (Cash on Delivery)",
-                feat_1_title: "Heavyweight Cotton 320GSM",
-                feat_1_desc: "Premium long-lasting quality",
-                feat_2_title: "Advanced DTF Printing",
-                feat_2_desc: "Resistant to frequent washes",
-                feat_3_title: "Secure COD Payment",
-                feat_3_desc: "Zero risk upfront",
-                filter_all: "All",
-                filter_anime: "Anime Hoodies",
-                filter_edition: "Special Editions",
-                badge_best: "Best Seller",
-                badge_excl: "Exclusive",
-                btn_order: "Order Now",
-                footer_about_title: "About DROXILOSHOP",
-                footer_about_desc: "Your premier destination in Morocco for luxury streetwear, heavyweight hoodies with exclusive designs.",
-                footer_links_title: "Quick Links",
-                footer_support_title: "Customer Support",
-                footer_shipping_info: "Shipping all over Morocco with Cash on Delivery",
-                footer_rights: "© 2026 All rights reserved. Shipping all over Morocco."
-            }
-        };
-
-        function switchLanguage(lang, element) {
-            currentLang = lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
-
-            const root = document.getElementById('html-root');
-            if (lang === 'ar') {
-                root.setAttribute('dir', 'rtl');
-                root.setAttribute('lang', 'ar');
-            } else {
-                root.setAttribute('dir', 'ltr');
-                root.setAttribute('lang', lang);
-            }
-
-            // تحديث جميع النصوص التي تحمل الوسم data-i18n في الموقع بالكامل
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.textContent = translations[lang][key];
-                }
-            });
-
-            renderCart();
-        }
-
         // سكريبت السلايدر التلقائي
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
@@ -1070,7 +948,7 @@
         }
         setInterval(nextSlide, 5000);
 
-        // تصفية المنتجات حسب الأقسام
+        // نظام تصفية المنتجات حسب الأقسام
         function filterProducts(category) {
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
@@ -1084,6 +962,147 @@
                     card.style.display = 'none';
                 }
             });
+        }
+
+        // --- نظام السلة الذكي (يعمل مع المنتجات الحالية وأي منتج تضيفه مستقبلاً تلقائياً) ---
+        let cart = JSON.parse(localStorage.getItem('droxilo_cart')) || [];
+
+        function saveCart() {
+            localStorage.setItem('droxilo_cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        // ربط كل أزرار (+) الموجودة أو التي ستضاف مستقبلاً في الموقع تلقائياً
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('add-plus-btn')) {
+                const card = e.target.closest('.product-card');
+                const title = card.querySelector('.product-title').innerText.replace('SHIPPING ALL OVER MOROCCO', '').trim();
+                const priceText = card.querySelector('.product-price').innerText;
+                const priceNum = parseFloat(priceText.replace(/[^0-9.]/g, '')) || 279;
+                const imgSrc = card.querySelector('.product-img-box img').getAttribute('src');
+
+                const existingIndex = cart.findIndex(item => item.title === title);
+                if (existingIndex > -1) {
+                    cart[existingIndex].qty += 1;
+                } else {
+                    cart.push({ title: title, price: priceNum, img: imgSrc, qty: 1 });
+                }
+
+                saveCart();
+                openCartDrawer();
+            }
+        });
+
+        function updateQty(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            saveCart();
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cart-items-container');
+            const badge = document.getElementById('cart-badge-count');
+            const totalEl = document.getElementById('cart-total-price');
+
+            let totalQty = 0;
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #888; margin-top: 40px;">السلة فارغة حالياً</p>';
+                badge.textContent = '0';
+                totalEl.textContent = 'MAD 0';
+                return;
+            }
+
+            container.innerHTML = '';
+            cart.forEach((item, idx) => {
+                totalQty += item.qty;
+                totalPrice += item.price * item.qty;
+
+                container.innerHTML += `
+                    <div class="cart-item-card">
+                        <img src="${item.img}" class="cart-item-img" onerror="this.src='https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=200'">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.title}</div>
+                            <div class="cart-item-price">MAD ${item.price}</div>
+                        </div>
+                        <div class="cart-qty-controls">
+                            <button class="qty-btn" onclick="updateQty(${idx}, 1)">+</button>
+                            <span style="font-weight: 800; font-size: 0.9rem;">${item.qty}</span>
+                            <button class="qty-btn" onclick="updateQty(${idx}, -1)">-</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            badge.textContent = totalQty;
+            totalEl.textContent = 'MAD ' + totalPrice;
+        }
+
+        function openCartDrawer() {
+            document.getElementById('cart-overlay').style.display = 'block';
+            document.getElementById('cart-drawer').classList.add('open');
+        }
+
+        function closeCartDrawer() {
+            document.getElementById('cart-overlay').style.display = 'none';
+            document.getElementById('cart-drawer').classList.remove('open');
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                alert('يرجى إضافة منتج واحد على الأقل إلى السلة عبر زر (+) أولاً.');
+                return;
+            }
+
+            let summaryList = cart.map((item, i) => `${i + 1}) ${item.title} | الكمية: ${item.qty} | السعر: ${item.price * item.qty} MAD`).join('\n');
+            let grandTotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            document.getElementById('order-details-input').value = summaryList;
+            document.getElementById('order-total-input').value = grandTotal + ' MAD';
+
+            closeCartDrawer();
+            document.getElementById('checkout-modal').style.display = 'flex';
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').style.display = 'none';
+        }
+
+        function clearCartAfterSubmit() {
+            localStorage.removeItem('droxilo_cart');
+        }
+
+        // تحديث السلة عند فتح الصفحة
+        renderCart();
+
+        // نظام تبديل اللغات الآمن
+        const translations = {
+            ar: { home: "HOME", about: "ABOUT US", contact: "CONTACT US", rights: "© 2026 جميع الحقوق محفوظة. التوصيل متوفر لكافة المدن المغربية." },
+            fr: { home: "ACCUEIL", about: "À PROPOS", contact: "CONTACTEZ-NOUS", rights: "© 2026 Tous droits réservés. Livraison partout au Maroc." },
+            en: { home: "HOME", about: "ABOUT US", contact: "CONTACT US", rights: "© 2026 All rights reserved. Shipping all over Morocco." }
+        };
+
+        function switchLanguage(lang, element) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const root = document.getElementById('html-root');
+            if (lang === 'ar') {
+                root.setAttribute('dir', 'rtl');
+                root.setAttribute('lang', 'ar');
+            } else {
+                root.setAttribute('dir', 'ltr');
+                root.setAttribute('lang', lang);
+            }
+
+            const t = translations[lang];
+            document.getElementById('nav-home').textContent = t.home;
+            document.getElementById('nav-about').textContent = t.about;
+            document.getElementById('nav-contact').textContent = t.contact;
+            document.getElementById('footer-rights').textContent = t.rights;
         }
     </script>
 </body>
